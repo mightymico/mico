@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
 import {getRuntimeVariableAction} from './../actions/AppActions';
 
 
@@ -14,13 +16,20 @@ class Main extends Component {
 
   render() {
     return (
-      <div class="center">{this.props.hi}</div>
+      <div>{this.props.message}</div>
     );
   }
 }
+
+Main.propTypes = {
+  message: PropTypes.string,
+  actions: PropTypes.shape({
+    getRuntimeVariable: PropTypes.func
+  })
+}
 function mapStateToProps(state) {
   return {
-    hi:state.runtime.hi
+    message: state.runtime.message
   };
 }
 

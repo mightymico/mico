@@ -12,6 +12,6 @@ export const setRuntimeVariable = (name, value) => {
 
 export const getRuntimeVariableAction = ()=> {
   return (dispatch)=> {
-    dispatch(setRuntimeVariable('hi', 'hello'));
+    dispatch(setRuntimeVariable('message', 'hello'));
   };
 };
