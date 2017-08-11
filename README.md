@@ -4,9 +4,8 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-React starter kit with ReactRouter,Redux
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+React starter kit with ReactRouter,Redux,Eslint
+Includes .eslintrc 
 
 ### How do I get set up? ###
 
