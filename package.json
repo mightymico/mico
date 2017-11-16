@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --config ./webpack.config.js  --progress --colors --watch & nodemon --ignore 'public/*' --ignore 'src/*' server"
-  },
+    "dev": "nodemon --ignore 'public/*' --ignore 'src/*' server_dev"
+    },
   "keywords": [
     "e4s",
     "react"
@@ -40,6 +40,9 @@
     "eslint": "^4.2.0",
     "eslint-plugin-react": "^7.1.0",
     "nodemon": "^1.11.0",
-    "webpack": "3.3.0"
+    "react-hot-loader": "^3.0.0-beta.5",
+    "webpack": "3.3.0",
+    "webpack-dev-middleware": "^1.8.3",
+    "webpack-hot-middleware": "^2.12.2"
   }
 }

@@ -1,15 +1,23 @@
 let path = require('path');
+let webpack = require('webpack');
 
 
 module.exports = {
   entry: [
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client?quiet=true',
     './src/index.js'
   ],
   output: {
     path: path.join(__dirname, 'public/js'),
-    //publicPath: '/',
+    publicPath: '/js/',
     filename: 'bundle.js'
   },
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -22,10 +30,5 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    // port: 5001,
-    contentBase: './'
   }
 };
