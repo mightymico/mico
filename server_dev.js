@@ -6,6 +6,8 @@ const cors = require('cors');
 var webpack = require('webpack');
 var config = require('./webpack.config');
 
+const mailRoute = require('./api/routers/email');
+
 var app = express();
 var compiler = webpack(config);
 
@@ -19,6 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'), { index: false, extensions: ['html'] }));
 
 app.use(cors());
+
+app.use('/api', mailRoute);
+
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
