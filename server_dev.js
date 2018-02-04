@@ -11,6 +11,7 @@ const mailRoute = require('./api/routers/email');
 var app = express();
 var compiler = webpack(config);
 
+const routes = require('./routes');
 
 app.use(require('webpack-dev-middleware')(compiler, {noInfo: true, publicPath: config.output.publicPath}));
 
@@ -23,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false, extension
 app.use(cors());
 
 app.use('/api', mailRoute);
+
+routes(app);
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
