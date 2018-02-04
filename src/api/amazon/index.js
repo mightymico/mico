@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const logger = require('../../../system').logger;
+const { logger } = require('../../../system');
 const Alexa = require('alexa-sdk');
 const handlers = require('./handlers');
 
 router.get('/', (req, res) => {
-  logger.info(req);  
   res.send({
     data: 'ok'
   });
