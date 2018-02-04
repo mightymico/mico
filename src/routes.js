@@ -11,6 +11,8 @@ import GoogleSignIn from './components/auth/GoogleSignin';
 import SignUp from './components/auth/SignUp';
 import Login from './components/auth/Login';
 
+import Dashboard from './components/pages/dashboard'
+
 
 import store from './util/store';
 
@@ -23,6 +25,7 @@ class MainRouter extends Component {
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={SignUp}/>
             <Route exact path='/google' component={GoogleSignIn}/>
+            <Route exact path='/dashboard' component={Dashboard} />
             <Route path='/' component={appRoute}/>
           </Switch>
         </BrowserRouter>
