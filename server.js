@@ -17,12 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'), { index: false, extensions: ['html'] }));
 
 app.use(cors());
+
+// all routes here
+routes(app);
+
 app.use('/auth', auth);
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
-
-routes(app);
 
 const PORT = process.env.PORT || 8082;
 app.listen(PORT, (err) => {
