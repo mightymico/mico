@@ -1,6 +1,6 @@
 const async = require('async');
 
-const User = require('./User');
+const User = require('./UserModel');
 const jwtUtil = require('../util/jwtutil');
 
 const decode = (req, cb) => {

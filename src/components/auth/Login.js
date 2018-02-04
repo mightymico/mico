@@ -59,7 +59,7 @@ class LoginPage extends Component {
                 <div class="m-login__signin">
                   <div class="m-login__head">
                     <h3 class="m-login__title">
-                      Sign in to Serpline
+                      Sign in to Mico
                     </h3>
                   </div>
                   <form class="m-login__form m-form" onSubmit={this.submit}>

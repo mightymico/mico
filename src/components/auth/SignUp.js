@@ -20,7 +20,7 @@ class SignUpPage extends Component {
 
   submit(evt) {
     evt.preventDefault();
-    const {email, password, rePassword}=this.state;
+    const {email, password, rePassword} = this.state;
     if (password != rePassword) return this.props.actions.setLoginError('Password donot match');
     this.props.actions.signup({email, password}, this.props.history);
   }
@@ -127,7 +127,7 @@ class SignUpPage extends Component {
             <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
               <div class="m-login__container">
                 <div class="m-login__logo">
-                  <Logo onClick={()=> {
+                  <Logo onClick={() => {
                     window.location.replace('/');
                   }}/>
                 </div>
@@ -139,6 +139,7 @@ class SignUpPage extends Component {
       </div>);
   }
 }
+
 function mapStateToProps(state) {
   return {
     loginError: state.runtime.loginError
@@ -148,8 +149,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      signup: (info, history)=>(dispatch(signUpAction(info, history))),
-      setLoginError: (error)=>(dispatch(setLoginErrorAction(error)))
+      signup: (info, history) => (dispatch(signUpAction(info, history))),
+      setLoginError: (error) => (dispatch(setLoginErrorAction(error)))
     }
   };
 }

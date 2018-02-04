@@ -9,6 +9,7 @@ module.exports = {
   //   expiresInMinutes: 20,
   //   algorithm: 'HS256',
   // },
+  mqtt:'mqtt://iot.eclipse.org:1883',
   tokens: {secret: process.env.TOKEN_SECRET || '98d64bs7f1ab179e4f376b206c3w2270'},
   google: {
     client_id: '967919500698-d144mulltuieuin0dab1ur8ln2acq9kt.apps.googleusercontent.com',

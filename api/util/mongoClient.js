@@ -30,6 +30,6 @@ module.exports = function initialize(app) {
     console.log('MongoDB disconnected!');
     mongoose.connect(app.mdb, {useMongoClient: true, autoReconnect: true})
   })
-  mongoose.connect(app.mdb, {useMongoClient: true, autoReconnect: true})
+  mongoose.connect(app.mdb, { autoReconnect: true})
 };
 
