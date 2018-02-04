@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  logger.info(JSON.stringify(req.body));  
+  logger.info(JSON.stringify(req.body, null, 2));  
   const context = {
     succeed: result => {
       res.json(result);
