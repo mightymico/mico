@@ -5,10 +5,12 @@ const express = require('express');
 const middlewares = require('./middlewares');
 const routes = require('./routes');
 const { logger } = require('../index.js');
+const db = require('../db');
 
 const serverConfig = config.server.production;
 const app = express();
 
+db(app);
 middlewares(app);
 routes(app);
 

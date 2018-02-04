@@ -5,10 +5,12 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../../webpack/client/webpack.dev.js');
 const middlewares = require('./middlewares');
 const routes = require('./routes');
+const db = require('../db');
 
 const compiler = webpack(webpackConfig);
 const app = express();
 
+db(app);
 app.use(
   webpackDevMiddleware(compiler, {
     noInfo: true,
