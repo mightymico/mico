@@ -7,11 +7,14 @@ var webpack = require('webpack');
 var config = require('./webpack.config');
 
 const mailRoute = require('./api/routers/email');
+const auth = require('./api/auth/router');
 
 var app = express();
 var compiler = webpack(config);
 
 const routes = require('./routes');
+const mongoClient = require('./api/util/mongoClient');
+mongoClient(app);
 
 app.use(require('webpack-dev-middleware')(compiler, {noInfo: true, publicPath: config.output.publicPath}));
 
@@ -24,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false, extension
 app.use(cors());
 
 app.use('/api', mailRoute);
+app.use('/auth', auth);
+
 
 routes(app);
 

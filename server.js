@@ -6,11 +6,18 @@ const routes = require('./routes')
 const logger = require('./system').logger;
 
 const app = express();
+
+const auth = require('./api/auth/router');
+
+const mongoClient = require('./api/util/mongoClient');
+mongoClient(app);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'), { index: false, extensions: ['html'] }));
 
 app.use(cors());
+app.use('/auth', auth);
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
