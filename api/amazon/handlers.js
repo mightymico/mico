@@ -12,4 +12,4 @@ const handlers = {
   }
 };
 
-module.exports.handlers = handlers;
+module.exports = handlers;
