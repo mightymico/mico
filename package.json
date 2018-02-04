@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --ignore 'public/*' --ignore 'src/*' server_dev",
-    "start": "cross-env NODE_ENV=production PORT=8080 node ./system/server/server.prod.js"
+    "dev": "nodemon --ignore 'public/*' --ignore 'src/*' server_dev"
   },
   "keywords": [
     "e4s",
