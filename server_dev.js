@@ -8,10 +8,12 @@ var config = require('./webpack.config');
 
 const mailRoute = require('./api/routers/email');
 const auth = require('./api/auth/router');
+const test = require('./api/routers/test');
 
 var app = express();
 var compiler = webpack(config);
 
+const mqttClent = require('./api/util/mqttClient');
 const mongoClient = require('./api/util/mongoClient');
 mongoClient(app);
 
@@ -25,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public'), { index: false, extension
 
 app.use(cors());
 
+app.use('/test', test);
 app.use('/api', mailRoute);
 app.use('/auth', auth);
 
