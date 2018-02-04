@@ -1,31 +1,61 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "node":true,
-    "commonjs": true,
-    "es6": true,
-  },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
+  "extends": ["airbnb", "prettier", "plugin:jest/recommended"],
   "plugins": [
-    "react"
+    "import",
+    "prettier",
+    "jest",
   ],
-  "rules": {
-    "max-len": [1, 120, 2, {ignoreComments: true}],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "linebreak-style": ["error", "unix"],
-    "react/prop-types": [1],
-    "no-unused-vars":[2],
-    "react/no-unknown-property": [2, { ignore:["class"]}],
-    "indent": ["error",2,{ "SwitchCase": 1 }],
-    // "quotes": ["error","double"],
-    "semi": [0, "always"]
-  }
+  "env": {
+    node: true,
+    browser: true,
+    es6: true,
+    "jest/globals": true,
+  },
+  rules: {
+    strict: ["error", "global"],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "off",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "comma-dangle": 0,
+    "import/no-extraneous-dependencies": ["error", {
+      devDependencies: true
+    }],
+    "no-console": 0,
+    "jsx-a11y/anchor-is-valid": ["warn", {
+      "components": ["Link"],
+      "specialLink": ["hrefLeft", "hrefRight", "to"],
+      "aspects": ["noHref", "invalidHref", "preferButton"]
+    }],
+    "global-require": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+    "prettier/prettier": ["warn", {
+      "singleQuote": true
+    }],
+  },
+  "parserOptions": {
+    ecmaVersion: 6,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
 };
