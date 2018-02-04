@@ -13,6 +13,7 @@ const test = require('./api/routers/test');
 var app = express();
 var compiler = webpack(config);
 
+const routes = require('./routes');
 const mqttClent = require('./api/util/mqttClient');
 const mongoClient = require('./api/util/mongoClient');
 mongoClient(app);
@@ -31,6 +32,8 @@ app.use('/test', test);
 app.use('/api', mailRoute);
 app.use('/auth', auth);
 
+
+routes(app);
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
