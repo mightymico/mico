@@ -4,7 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const routes = require('./routes')
 const logger = require('./system').logger;
-
 const app = express();
 
 const auth = require('./api/auth/router');
