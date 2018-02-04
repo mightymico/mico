@@ -9,4 +9,12 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/', (req, res) => {
+  logger.info(req.body);  
+  res.send({
+    data: 'ok'
+  });
+});
+
+
 module.exports = router;
