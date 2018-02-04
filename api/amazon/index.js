@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
       res.satus(500).send(error)
     }
   }
-  const alexa = Alexa.handker(req.body, context);
+  const alexa = Alexa.handler(req.body, context);
   alexa.registerHandlers(handlers);
   alexa.execute();
 });
